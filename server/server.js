@@ -8,25 +8,19 @@ const app = express();
 const PORT = 5000;
 
 //creates an endpoint for the route /api
-app.get('/weather', (req, res) => {
-  const city = req.query.Detroit;
+app.get('/weather', async (req, res) => {
+  const city = req.query.city;
   const apiKey = process.env.API_KEY;
-  const params = new URLSearchParams({
-    q: 'city',
-    appid: apiKey,
-    units: "imperial",
-  });
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   
-const url = `https://api.openweathermap.org/data/2.5/weather?${params}`;;
-  console.log(url);
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-    res.send({data});
-  })
-  .catch((err) => {
+try {
+  const response = await fetch(url);
+
+  const data = await response.json();
+  res.json(data);
+  } catch(err) {
     console.log(err);
-  })
+  }
 });
 
 // console.log that your server is up and running
