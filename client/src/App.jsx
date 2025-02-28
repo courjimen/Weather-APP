@@ -1,6 +1,6 @@
 // client/src/App.jsx
 import React, { useState } from "react";
-import Weather from './Weather';
+import NewWeather from './components/NewWeather'
 
 function App() {
   const [data, setData] = useState(null);
@@ -9,13 +9,14 @@ function App() {
   const handleInputChange = (event) => {
     setCity(event.target.value);
   }
+
   const connectToBackend = (event) => {
     event.preventDefault();
-    fetch('/weather/:city')
-      .then((res) => res.json())
+    console.log("city sent:", city)
+    fetch(`/weather/${city}`)
+      .then((res) => res.json(data))
       .then((data) => setData(data));
   };
-
   return (
     <div className="App">
 
@@ -29,10 +30,9 @@ function App() {
     />
       <button type="submit">Submit</button>
       </form>
-    
       
-      {/* Render the newly fetched data inside data */}
-     <Weather />
+     {data && <NewWeather {...data}/>}
+
     </div>
   );
 }

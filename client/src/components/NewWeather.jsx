@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Weather({city, description, cloudy, temp}) {
+function NewWeather({city, description, cloudy, temp}) {
   return (
     <>
      <h2>City: {city}</h2>
@@ -10,4 +10,4 @@ function Weather({city, description, cloudy, temp}) {
     </>
   )
 }
-export default Weather;
+export default NewWeather;
