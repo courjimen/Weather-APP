@@ -12,7 +12,7 @@ function App() {
 
   const connectToBackend = (event) => {
     event.preventDefault();
-    console.log("city sent:", city)
+    // handle errors
     fetch(`/weather/${city}`)
       .then((res) => res.json())
       .then((data) => setData(data));

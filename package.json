@@ -2,8 +2,8 @@
   "name": "weather-app",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "type": "module",
     "start": "node server/server.js",
     "dev": "nodemon server/server.js"
   },
@@ -12,7 +12,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "config": "^3.3.12",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "node-fetch": "^3.3.2",
     "nodemon": "^3.1.9"
   }
 }
