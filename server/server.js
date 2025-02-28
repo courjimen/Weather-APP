@@ -22,6 +22,7 @@ app.get('/weather/:city', async (req, res) => {
     const cloudy = data.clouds;
     const weather  = data.weather;
     const windSpeed = data.wind.speed;
+    const humidity = data.main.humidity;
 
     res.json({
       description: description,
@@ -29,7 +30,8 @@ app.get('/weather/:city', async (req, res) => {
       cloudy: cloudy,
       city: data.name,
       weather: weather,
-      windSpeed: windSpeed
+      windSpeed: windSpeed,
+      humidity: humidity
     });
 
   } catch (err) {
