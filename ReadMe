@@ -57,6 +57,6 @@ Follow the provided link to localhost:5173 which should display this page:
 Now you should be able to input your city and see the following weather results:
 | City 1 | City 2 |
 | -- | -- |
-|![](./images/detroit.png) | ![](./images/Tampa.png) |
+|![](/images/detroit.png) | ![](/images/Tampa.png) |
 
 That's all folks 🎉 Thank you for checking out my work 🙌🏾
