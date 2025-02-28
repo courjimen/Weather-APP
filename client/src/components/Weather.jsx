@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 function Weather({city, description, cloudy, temp}) {
   return (
     <>
-     <h2>City: data.{city}</h2>
-      <p>Description: data.{description}</p>
-      <p>Clouds: data.{cloudy.all}</p>
-      <p>Temp: data.{temperature}</p>
+     <h2>City: {city}</h2>
+      <p>Description: {description}</p>
+      <p>Clouds: {cloudy.all}</p>
+      <p>Temp: {temperature}</p>
     </>
   )
 }
-export default Weather 
+export default Weather;
