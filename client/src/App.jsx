@@ -14,7 +14,7 @@ function App() {
     event.preventDefault();
     console.log("city sent:", city)
     fetch(`/weather/${city}`)
-      .then((res) => res.json(data))
+      .then((res) => res.json())
       .then((data) => setData(data));
   };
   return (

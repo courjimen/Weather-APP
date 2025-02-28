@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NewWeather({city, description, cloudy, temp}) {
+function NewWeather({city, description, cloudy, temperature}) {
   return (
     <>
      <h2>City: {city}</h2>
