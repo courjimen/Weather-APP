@@ -1,0 +1,143 @@
+#  Weather App Project
+This project pulls live weather data from [OpenWeather API](https://openweathermap.org/api) and displays your current city weather conditions!
+
+## Table of Contents
+1. [Installation Instructions](#installation)
+
+2. [How to Set Up Project](#run-project-locally)
+
+3. [Running the Weather App](#connect-to-my-database-in-postgresql)
+
+4. [Demo](#postman)
+
+## Installation
+❗️ My instructions are specified for **MAC users.**  
+
+❗️ Prior to jumping into my project make you install: 
+
+- dotenv
+- express
+- vite/react
+
+The code editor I used for this project was VS Code. 
+- Follow these steps to [install Express](https://expressjs.com/en/starter/installing.html) on your VS Code terminal (they also provide documentation to install node.js)
+
+✅ **You _MUST have these installed_** in order to run my project.
+
+## Run Project Locally
+Clone my project below from your terminal
+
+```bash
+git clone https://github.com/courjimen/Weather-APP.git
+```
+
+Open in VS Code
+```bash
+code .
+```
+Navigate to the server folder and open the server.js file then run this command:
+```bash
+node server.js
+```
+
+✅ Open localhost:5000/weather/:city in your browser and replace city with your favorite city in the url to see the backend code
+
+![](./images/backend.png)
+
+Now navigate to the client folder and open the app.jsx file. Then open a _separate terminal_ you need to have <ins>both <ins> running at the same time ❗️
+
+Run vite in your second terminal for the app.jsx file:
+
+```bash
+npm run dev
+```
+Follow the provided link to localhost:5173 which should display this page:
+
+![](./images/frontend.png)
+
+## Demo
+Now you should be able to modify my database from your command line (MAC Terminal) or Postman 🎉 Below are the four CRUD operations you can use to modify my database in Postman and your MAC Terminal: 
+
+### <ins>Postman</ins>
+For all the following methods, open the postman vs code extension and select new HTTP Request. When it opens it will be set to GET and you will need to insert this url: http://localhost:3000/books
+
+**GET**
+
+1. Select GET from the color coded tab dropdown and insert this url: http://localhost:3000/books 
+2. Send the request
+
+![](images/GET.png)
+
+**POST** 
+
+1. Select POST from the color coded tab dropdown 
+2. Select the tab dropdown labelled "params" and select "body" 
+3. Click the "x-www-form-urlencoded" option
+4. Enter the following four keys along with their values: <br>
+    -ibsn   <br>
+    -title  <br>
+    -author <br>
+    -format
+5. Send the request. You can view your new data in the response section and when you refresh your local host.
+
+**PUT**
+1. Select PUT from the color coded tab dropdown and you will need to insert this url: http://localhost:3000/books/ID_NUMBER
+2. Replace ID_NUMBER with the ID number of the row you want to update
+3. Select the tab dropdown labelled "params" and select "body"
+4. Click the "x-www-form-urlencoded" option
+5. Enter the following four keys along with their updated values: <br>
+    -ibsn   <br>
+    -title  <br>
+    -author <br>
+    -format
+6.  Send the request. You can view your new data in the response section and when you refresh your local host.
+
+**DELETE**
+1. Select DELETE from the color coded tab dropdown and you will need to insert this url: http://localhost:3000/books/ID_NUMBER
+2. Replace ID_NUMBER with the ID number of the row you want to delete
+3.  Send the request. You can view your new data in the response section and when you refresh your local host.
+
+### <ins>MAC Terminal</ins>
+_remember to mind capitalization and <ins>ALWAYS</ins> put a semicolon at the end of your postgreSQL command or it will not run_
+
+To Create a new book use the following command: 
+
+```bash
+INSERT INTO series (ibsn, title, author, format) VALUES (01234, 'insert_title', 'insert_author', 'insert_format');
+```
+When you use the _SELECT * FROM series;_ command it should display this:
+
+![](images/TestTable.png)
+
+To display all your books use the following command: 
+
+```bash
+SELECT * FROM series;
+```
+
+To update an attribute of a book remember to use the _WHERE clause_ to ensure you update only the row with the content you want to change(title, author, etc.) or else it will update all the rows like so:
+
+- nowhere ❌ 
+
+![](images/nowhere.png)
+
+use the following command **with** the WHERE clause: 
+
+```bash
+UPDATE series SET title='New Title', format='USED WHERE' WHERE id=2;
+```
+- with WHERE ✅
+
+![](images/with-WHERE.png)
+
+I grabbed the row I wanted by ID but you could use whichever attributes you'd like. Check out this resource to learn more about the WHERE Clause 😊
+
+To delete a book use the following command: 
+
+```bash
+DELETE FROM series WHERE condition;
+```
+
+Similar to update I would replace condition with the id=insert_number and use that to delete the corresponding row.
+
+That's all folks 🎉 Thank you for checking out my work 🙌🏾
