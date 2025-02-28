@@ -9,7 +9,8 @@ function App() {
   const handleInputChange = (event) => {
     setCity(event.target.value);
   }
-  const connectToBackend = () => {
+  const connectToBackend = (event) => {
+    event.preventDefault();
     fetch('/weather/:city')
       .then((res) => res.json())
       .then((data) => setData(data));
@@ -18,15 +19,15 @@ function App() {
   return (
     <div className="App">
 
-      <form>
-      <h1>Weather in Detroit</h1>
+      <form onSubmit={connectToBackend}>
+      <h1>Weather in {city || "..."}</h1>
       <input 
       type = "text"
       placeholder='Insert City'
       value={city}
       onChange={handleInputChange}
     />
-      <button onClick={connectToBackend}>Submit</button>
+      <button type="submit">Submit</button>
       </form>
     
       
