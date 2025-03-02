@@ -18,7 +18,10 @@ function App() {
     fetch(`/weather/${city}`)
       .then((res) => res.json())
       .then((data) => setData(data))
-      .catch((err) => setErr("Invalid city. Try again."))
+      .catch((err) => {
+        setData(null);
+        setErr("Invalid city. Try again.")
+      })
   };
 
   // console.log("data: ", data);
@@ -31,7 +34,7 @@ function App() {
     } else {
       setIconUrl(null);
     }
-  }, [data, err]); //run effect when data changes
+  }, [data]); //run effect when data changes
   
   console.log({data});
   return (
